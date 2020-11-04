@@ -45,9 +45,13 @@ public class AmusementParksApplication {
 		
 		log.info("save demo data of amusement parks with categories");
 		
-		parkRepository.save(new Park("Linnanmäki", 4 , "www.linnanmaki.fi", "Finland", "Helsinki"));
-		parkRepository.save(new Park("Särkänniemi", 3 , "www.sarkanniemi.fi", "Finland", "Tampere"));
-		parkRepository.save(new Park("Powerpark", 5 , "www.powerpark.fi", "Finland", "Alahärmä"));	
+		Park park1 = new Park("Linnanmäki", 4 , "www.linnanmaki.fi", "Finland", "Helsinki");
+		Park park2 = new Park("Särkänniemi", 3 , "www.sarkanniemi.fi", "Finland", "Tampere");
+		Park park3 = new Park("Powerpark", 5 , "www.powerpark.fi", "Finland", "Alahärmä");
+		
+		parkRepository.save(park1);
+		parkRepository.save(park2);
+		parkRepository.save(park3);	
 		
 		
 		log.info("fetch all parks");
@@ -57,9 +61,13 @@ public class AmusementParksApplication {
 		
 		log.info("save demo data of attractions");
 		
-		attractionRepository.save(new Attraction("Booster", 5 , "Ihan sairaan kauhee", category2));
-		attractionRepository.save(new Attraction("Pitts Special", 5 , "Tuntuu kuin olisi lentokoneessa!", category3));
-		attractionRepository.save(new Attraction("Cobra", 4 , "Huikee, mutta vähän nykivä", category3));	
+		attractionRepository.save(new Attraction("Booster", 5 , "Ihan sairaan kauhee", category2, park3));
+		attractionRepository.save(new Attraction("Pitts Special", 5 , "Tuntuu kuin olisi lentokoneessa!", category3, park3));
+		attractionRepository.save(new Attraction("Cobra", 4 , "Huikee, mutta vähän nykivä", category3, park3));	
+		attractionRepository.save(new Attraction("Rekkaralli", 3 , "Kiva peruslaite", category1, park1));
+		attractionRepository.save(new Attraction("Kingi", 3 , "Hurja mutta tylsä", category2, park1));
+		attractionRepository.save(new Attraction("Tornado", 4 , "Hyvä laite, mutta ajo on tosi lyhyt", category3, park2));
+		attractionRepository.save(new Attraction("Kahvikuppikaruselli", 4 , "Koko perheelle sopiva laite", category1, park2));
 		
 		
 		log.info("fetch all attractions");

@@ -1,9 +1,15 @@
 package hh.swd20.AmusementParks.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Park {
@@ -17,6 +23,11 @@ public class Park {
 	private String webpage;
 	private String country;
 	private String city;
+	
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "park")
+	@JsonIgnoreProperties("park")
+	private List<Attraction> attractions;
 	
 	public Park(String parkName, int parkScore, String webpage, String country, String city) {
 		super();

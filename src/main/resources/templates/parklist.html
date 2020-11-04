@@ -18,6 +18,7 @@
 			<th>City</th>
 			<th>Score</th>
 			<th>Webpage</th>
+			
 		</tr>
 		
 		<tr th:each="park : ${parks}">
@@ -26,6 +27,8 @@
 		<td th:text="${park.city}">City</td>
 		<td th:text="${park.parkScore}">Score</td>
 		<td th:text="${park.webpage}">Webpage</td>
+			
+		
 		</tr>
 		
 	</table>
