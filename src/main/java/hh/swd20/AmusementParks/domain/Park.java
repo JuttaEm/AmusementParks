@@ -1,7 +1,16 @@
 package hh.swd20.AmusementParks.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Park {
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long parkId;
 	private String parkName;
 	private int parkScore;
@@ -9,7 +18,7 @@ public class Park {
 	private String country;
 	private String city;
 	
-	public Park(long parkId, String parkName, int parkScore, String webpage, String country, String city) {
+	public Park(String parkName, int parkScore, String webpage, String country, String city) {
 		super();
 		this.parkId = 0;
 		this.parkName = parkName;

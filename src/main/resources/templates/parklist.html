@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <title>Amusement parks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /> 
+</head>
+
+<body>
+
+<h1>Amusement parks</h1>
+
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Country</th>
+			<th>City</th>
+			<th>Score</th>
+			<th>Webpage</th>
+		</tr>
+		
+		<tr th:each="park : ${parks}">
+		<td th:text="${park.parkName}">Name</td>
+		<td th:text="${park.country}">Country</td>
+		<td th:text="${park.city}">City</td>
+		<td th:text="${park.parkScore}">Score</td>
+		<td th:text="${park.webpage}">Webpage</td>
+		</tr>
+		
+	</table>
+
+
+
+</body>
+</html>
