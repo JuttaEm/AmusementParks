@@ -1,19 +1,39 @@
 package hh.swd20.AmusementParks.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
 public class Attraction {
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long attractionId;
 	private String attractionName;
 	private int attractionScore;
 	private String comment;
 	
 	
-	public Attraction(long attractionId, String attractionName, int attractionScore, String comment) {
+	
+	@ManyToOne
+	@JsonIgnoreProperties ("attractions")
+	@JoinColumn(name = "categoryId")
+	private Category category;
+	
+	public Attraction(String attractionName, int attractionScore, String comment, Category category) {
 		super();
 		this.attractionId = 0;
 		this.attractionName = attractionName;
 		this.attractionScore = attractionScore;
 		this.comment = comment;
+		this.category = category;
 	}
 
 
@@ -23,6 +43,7 @@ public class Attraction {
 		this.attractionName = null;
 		this.attractionScore = 0;
 		this.comment = null;
+		this.category = null;
 	}
 
 
@@ -44,10 +65,10 @@ public class Attraction {
 	public String getComment() {
 		return comment;
 	}
-
-
-	public void setAttractionId(long attractionId) {
-		this.attractionId = attractionId;
+	
+	
+	public Category getCategory() {
+		return category;
 	}
 
 
@@ -64,11 +85,20 @@ public class Attraction {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Attraction [attractionId=" + attractionId + ", attractionName=" + attractionName + ", attractionScore="
+		if (this.category != null)
+			return "Attraction [attractionId=" + attractionId + ", attractionName=" + attractionName + ", attractionScore="
+					+ attractionScore + ", comment=" + comment + ", category=" + category + "]";
+		else
+			return "Attraction [attractionId=" + attractionId + ", attractionName=" + attractionName + ", attractionScore="
 				+ attractionScore + ", comment=" + comment + "]";
 	}
 	

@@ -1,5 +1,7 @@
 package hh.swd20.AmusementParks.domain;
 
-public interface AttractionRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface AttractionRepository extends CrudRepository<Attraction, Long> {
 
 }
