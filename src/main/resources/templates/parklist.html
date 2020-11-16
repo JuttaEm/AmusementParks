@@ -9,6 +9,8 @@
 
 <body>
 
+
+
 <h1>Amusement parks</h1>
 
 	<table class="table table-striped">
@@ -18,6 +20,11 @@
 			<th>City</th>
 			<th>Score</th>
 			<th>Webpage</th>
+			<th>List of attractions</th>
+			<th>Add new attraction</th>
+			<th>Edit</th>
+			<th>Delete</th>
+			
 			
 		</tr>
 		
@@ -26,12 +33,18 @@
 		<td th:text="${park.country}">Country</td>
 		<td th:text="${park.city}">City</td>
 		<td th:text="${park.parkScore}">Score</td>
-		<td th:text="${park.webpage}">Webpage</td>
-			
+		<td th:text="${park.webpage}">Webpage</td>	
+		<td><a class="btn btn-success" th:href="@{/parks/{id}(id=${park.parkId})}">Attractions</a></td>
+		<td><a class="btn btn-success" th:href="@{/addattraction/{id}(id=${park.parkId})}">Add Attraction</a></td>			
+		<td><a th:href="@{/editpark/{id}(id=${park.parkId})}">Edit</a></td>
+		<td><a th:href="@{/deletepark/{id}(id=${park.parkId})}">Delete</a></td>
 		
 		</tr>
 		
 	</table>
+	
+	<a href="/addpark" class="btn btn-primary">Add new park</a>
+	<a href="/attractionlist" class="btn btn-primary">Attractionlist</a>
 
 
 

@@ -42,6 +42,16 @@ public class Attraction {
 		this.category = category;
 		this.park = park;
 	}
+	
+	public Attraction(String attractionName, int attractionScore, String comment, Category category) {
+		super();
+		this.attractionId = 0;
+		this.attractionName = attractionName;
+		this.attractionScore = attractionScore;
+		this.comment = comment;
+		this.category = category;
+		this.park = null;
+	}
 
 
 	public Attraction() {
@@ -112,9 +122,9 @@ public class Attraction {
 
 	@Override
 	public String toString() {
-		if (this.category != null)
+		if (this.category != null && this.park != null)
 			return "Attraction [attractionId=" + attractionId + ", attractionName=" + attractionName + ", attractionScore="
-					+ attractionScore + ", comment=" + comment + ", category=" + category + "]";
+					+ attractionScore + ", comment=" + comment + ", category=" + category + ", park=" + park + "]";
 		else
 			return "Attraction [attractionId=" + attractionId + ", attractionName=" + attractionName + ", attractionScore="
 				+ attractionScore + ", comment=" + comment + "]";

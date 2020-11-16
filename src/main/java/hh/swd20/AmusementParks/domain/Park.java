@@ -1,6 +1,7 @@
 package hh.swd20.AmusementParks.domain;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -29,24 +30,36 @@ public class Park {
 	@JsonIgnoreProperties("park")
 	private List<Attraction> attractions;
 	
-	public Park(String parkName, int parkScore, String webpage, String country, String city) {
+	public Park(String parkName, int parkScore, String webpage, String country, String city, List<Attraction> attractions) {
 		super();
-		this.parkId = 0;
 		this.parkName = parkName;
 		this.parkScore = parkScore;
 		this.webpage = webpage;
 		this.country = country;
 		this.city = city;
+		this.attractions = attractions;
+		
+	}
+	
+	public Park(String parkName, int parkScore, String webpage, String country, String city) {
+		super();
+		this.parkName = parkName;
+		this.parkScore = parkScore;
+		this.webpage = webpage;
+		this.country = country;
+		this.city = city;
+		this.attractions = null;
+		
 	}
 
 	public Park() {
 		super();
-		this.parkId = 0;
 		this.parkName = null;
 		this.parkScore = 0;
 		this.webpage = null;
 		this.country = null;
 		this.city = null;
+		this.attractions = new ArrayList<>();
 	}
 
 	public long getParkId() {
@@ -72,9 +85,9 @@ public class Park {
 	public String getCity() {
 		return city;
 	}
-
-	public void setParkId(long parkId) {
-		this.parkId = parkId;
+	
+	public List<Attraction> getAttractions() {
+		return attractions;
 	}
 
 	public void setParkName(String parkName) {
@@ -96,6 +109,11 @@ public class Park {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
+	public void setAttractions(List<Attraction> attractions) {
+		this.attractions = attractions;
+	}
+	
 
 	@Override
 	public String toString() {

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Amusement parks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /> 
+</head>
+
+<body>
+	
+	<h1>Edit the selected amusement park</h1>
+	
+	<div>
+		<form th:object="${park}" th:action="@{../savepark}" action="#" method="post">
+			
+			<input type="hidden" th:field="*{parkId}" />
+			
+			<label for="parkname">Name</label>
+			<input type="text" id="parkname" th:field="*{parkName}"/>
+			
+			<label for="parkscore">Score</label>
+			<input type="text" id="parkscore" th:field="*{parkScore}"/>
+			
+			<label for="webpage">Webpage</label>
+			<input type="text" id="webpage" th:field="*{webpage}"/>
+			
+			<label for="country">Country</label>
+			<input type="text" id="country" th:field="*{country}"/>
+			
+			<label for="city">City</label>
+			<input type="text" id="city" th:field="*{city}"/>
+			
+			<input type="submit" value="Save changes"></input>
+		
+		</form>
+	
+	
+	</div>
+
+    
+</body>
+</html>

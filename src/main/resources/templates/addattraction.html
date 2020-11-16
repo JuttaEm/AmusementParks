@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Amusement parks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /> 
+</head>
+
+<body>
+	
+	<h1>Add a new attraction to Amusement park</h1>
+	
+	<br/>
+	
+	<div>
+		<form th:object="${attraction}" th:action="@{../saveattraction}" action="#" method="post">
+			
+			<label for="attractionname">Name</label>
+			<input type="text" id="attractionname" th:field="*{attractionName}"/>
+			
+			<label for="attractionscore">Score</label>
+			<input type="text" id="attractionscore" th:field="*{attractionScore}"/>
+			
+			<label for="comment">Comment</label>
+			<input type="text" id="comment" th:field="*{comment}"/>
+			
+			<label for="categorylist">Category</label>
+				<select id="categorylist" th:field="*{category}" class="form-control">
+					<option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.categoryName}"></option>
+				</select>		
+			
+			<input type="hidden" th:field="*{park.parkId}" />
+			
+			
+			<input type="submit" value="Save"></input>
+		
+		</form>
+	
+	
+	</div>
+
+    
+</body>
+</html>
