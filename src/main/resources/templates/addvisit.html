@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Amusement parks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /> 
+</head>
+
+<body>
+	
+	<h1>Add a new visit to an amusement park</h1>
+	
+	<br/>
+	
+	<div>
+		<form th:object="${visit}" th:action="@{savevisit}" action="#" method="post">
+			
+			<label for="date">Give the date of your visit</label>
+			<input placeholder="dd.mm.yyyy" type="date" id="visitdate" th:field="*{visitDate}"/>
+			
+				
+			<input type="submit" value="Save"></input>
+		
+		</form>
+	
+	
+	</div>
+
+    
+</body>
+</html>

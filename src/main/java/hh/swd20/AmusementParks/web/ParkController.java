@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import hh.swd20.AmusementParks.domain.Attraction;
 import hh.swd20.AmusementParks.domain.AttractionRepository;
 import hh.swd20.AmusementParks.domain.Park;
 import hh.swd20.AmusementParks.domain.ParkRepository;
@@ -55,16 +56,25 @@ public class ParkController {
 		return "redirect:parklist";
 	}
 	
-	@RequestMapping(value="/editpark/{id}")
+	@GetMapping(value="/editpark/{id}")
 	public String editPark(@PathVariable("id") Long parkId, Model model) {
 		model.addAttribute("park", parkRepository.findById(parkId));
 		return "editpark";
 	}
 	
+	
 	@RequestMapping(value="/deletepark/{id}", method = RequestMethod.GET)
 	public String deletePark(@PathVariable("id") Long parkId, Model model) {
 		parkRepository.deleteById(parkId);
 		return "redirect:../parklist";
+	}
+	
+	@GetMapping(value="/attractionlist/{id}")
+	public String findAttractionsByParkId(@PathVariable("id") Long parkId, Attraction attraction, Model model) {
+		//parkRepository.findAttractionsByParkId(parkId);
+		model.addAttribute("park", parkRepository.findById(parkId));
+		model.addAttribute("attractions", attractionRepository.findById(attraction.getAttractionId()));
+		return "attractionlist";
 	}
 	
 

@@ -1,5 +1,7 @@
-package hh.swd20.AmusementParks.domain;
+/*package hh.swd20.AmusementParks.domain;
 
-public interface VisitRepository {
+import org.springframework.data.repository.CrudRepository;
 
-}
+public interface VisitRepository extends CrudRepository<Visit, Long> {
+
+}*/

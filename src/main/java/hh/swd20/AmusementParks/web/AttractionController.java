@@ -35,11 +35,11 @@ public class AttractionController {
 	@Autowired
 	private ParkRepository parkRepository;
 	
-	@GetMapping("/attractionlist")
+	/*@GetMapping("/attractionlist")
 	public String listAttractionsByParkId(Model model) {
 		model.addAttribute("attractions", attractionRepository.findAll());
 		return "attractionlist";
-	}
+	}*/
 	
 	//RESTful service to get all attractions
 	@GetMapping(value="/attractions")
@@ -67,7 +67,7 @@ public class AttractionController {
 	@PostMapping(value="/saveattraction")
 	public String saveAttraction(Attraction attraction, Model model) {
 		attractionRepository.save(attraction);
-		return "redirect:../parklist";
+		return "redirect:../attractions";
 	}
 	
 

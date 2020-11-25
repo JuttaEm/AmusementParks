@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,6 +31,22 @@ public class Park {
 	@JsonIgnoreProperties("park")
 	private List<Attraction> attractions;
 	
+	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "park")
+	@JsonIgnoreProperties("park")
+	private List<Visit> visits;*/
+	
+	
+	/*public Park(String parkName, int parkScore, String webpage, String country, String city, List<Attraction> attractions, List<Visit> visits) {
+		super();
+		this.parkName = parkName;
+		this.parkScore = parkScore;
+		this.webpage = webpage;
+		this.country = country;
+		this.city = city;
+		this.attractions = attractions;
+		this.visits = visits;
+	}*/
+	
 	public Park(String parkName, int parkScore, String webpage, String country, String city, List<Attraction> attractions) {
 		super();
 		this.parkName = parkName;
@@ -38,7 +55,7 @@ public class Park {
 		this.country = country;
 		this.city = city;
 		this.attractions = attractions;
-		
+		//this.visits = new ArrayList<>();
 	}
 	
 	public Park(String parkName, int parkScore, String webpage, String country, String city) {
@@ -48,8 +65,8 @@ public class Park {
 		this.webpage = webpage;
 		this.country = country;
 		this.city = city;
-		this.attractions = null;
-		
+		this.attractions = new ArrayList<>();
+		//this.visits = new ArrayList<>();
 	}
 
 	public Park() {
@@ -60,6 +77,7 @@ public class Park {
 		this.country = null;
 		this.city = null;
 		this.attractions = new ArrayList<>();
+		//this.visits = new ArrayList<>();
 	}
 
 	public long getParkId() {
@@ -90,6 +108,14 @@ public class Park {
 		return attractions;
 	}
 
+	/*public List<Visit> getVisits() {
+		return visits;
+	}*/
+
+	public void setParkId(long parkId) {
+		this.parkId = parkId;
+	}
+
 	public void setParkName(String parkName) {
 		this.parkName = parkName;
 	}
@@ -113,13 +139,28 @@ public class Park {
 	public void setAttractions(List<Attraction> attractions) {
 		this.attractions = attractions;
 	}
-	
 
 	@Override
 	public String toString() {
 		return "Park [parkId=" + parkId + ", parkName=" + parkName + ", parkScore=" + parkScore + ", webpage=" + webpage
 				+ ", country=" + country + ", city=" + city + "]";
 	}
+
+	/*public void setVisits(List<Visit> visits) {
+		this.visits = visits;
+	}
+
+	@Override
+	public String toString() {
+		return "Park [parkId=" + parkId + ", parkName=" + parkName + ", parkScore=" + parkScore + ", webpage=" + webpage
+				+ ", country=" + country + ", city=" + city + ", attractions=" + attractions + ", visits=" + visits
+				+ "]";
+	}*/
+	
+	
+	
+
+
 	
 	
 	

@@ -26,14 +26,12 @@ public class Category {
 	
 	public Category(String categoryName) {
 		super();
-		this.categoryId = 0;
 		this.categoryName = categoryName;
 	}
 
 
 	public Category() {
 		super();
-		this.categoryId = 0;
 		this.categoryName = null;
 	}
 
@@ -45,6 +43,11 @@ public class Category {
 
 	public String getCategoryName() {
 		return categoryName;
+	}
+	
+	
+	public void setCategoryId(long categoryId) {
+		this.categoryId = categoryId;
 	}
 
 

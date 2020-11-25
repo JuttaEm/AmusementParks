@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ParkRepository extends CrudRepository<Park, Long> {
 	
-	
+	//public List<Attraction> findAttractionsByParkId(Long parkId);
 
 }

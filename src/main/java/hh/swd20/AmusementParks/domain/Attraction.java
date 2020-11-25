@@ -22,20 +22,19 @@ public class Attraction {
 	
 	
 	@ManyToOne
-	@JsonIgnoreProperties ("attractions")
+	@JsonIgnoreProperties("attractions")
 	@JoinColumn(name = "parkId")
 	private Park park;
 	
 	
 	@ManyToOne
-	@JsonIgnoreProperties ("attractions")
+	@JsonIgnoreProperties("attractions")
 	@JoinColumn(name = "categoryId")
 	private Category category;
 	
 	
 	public Attraction(String attractionName, int attractionScore, String comment, Category category, Park park) {
 		super();
-		this.attractionId = 0;
 		this.attractionName = attractionName;
 		this.attractionScore = attractionScore;
 		this.comment = comment;
@@ -45,7 +44,6 @@ public class Attraction {
 	
 	public Attraction(String attractionName, int attractionScore, String comment, Category category) {
 		super();
-		this.attractionId = 0;
 		this.attractionName = attractionName;
 		this.attractionScore = attractionScore;
 		this.comment = comment;
@@ -56,7 +54,6 @@ public class Attraction {
 
 	public Attraction() {
 		super();
-		this.attractionId = 0;
 		this.attractionName = null;
 		this.attractionScore = 0;
 		this.comment = null;
@@ -94,6 +91,9 @@ public class Attraction {
 		return park;
 	}
 
+	public void setAttractionId(long attractionId) {
+		this.attractionId = attractionId;
+	}
 
 	public void setAttractionName(String attractionName) {
 		this.attractionName = attractionName;

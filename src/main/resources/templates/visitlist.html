@@ -11,10 +11,11 @@
 
 
 
-<h1>Amusement parks</h1>
+<h1>Visits to Amusement parks</h1>
 
 	<table class="table table-striped">
 		<tr>
+			<th>Date</th>
 			<th>Name</th>
 			<th>Country</th>
 			<th>City</th>
@@ -28,23 +29,22 @@
 			
 		</tr>
 		
-		<tr th:each="park : ${parks}">
-		<td th:text="${park.parkName}">Name</td>
-		<td th:text="${park.country}">Country</td>
-		<td th:text="${park.city}">City</td>
-		<td th:text="${park.parkScore}">Score</td>
-		<td th:text="${park.webpage}">Webpage</td>	
-		<td><a class="btn btn-success" th:href="@{/attractionlist/{id}(id=${park.parkId})}">Attractions</a></td>
-		<td><a class="btn btn-success" th:href="@{/addattraction/{id}(id=${park.parkId})}">Add Attraction</a></td>			
+		<tr th:each="visit : ${visits}">
+		<td th:text="${visit.visitDate}">Date</td>
+		<td th:text="${visit.park.parkName}">Name</td>
+		<td th:text="${visit.park.country}">Country</td>
+		<td th:text="${visit.park.city}">City</td>
+		<td th:text="${visit.park.parkScore}">Score</td>
+		<td th:text="${visit.park.webpage}">Webpage</td>			
 		<td><a th:href="@{/editpark/{id}(id=${park.parkId})}">Edit</a></td>
-		<td><a th:href="@{/deletepark/{id}(id=${park.parkId})}">Delete</a></td>
+		<td><a th:href="@{/deletepark/{id}(id=${park.parkId})}" class="btn btn-danger">Delete</a></td>
 		
 		</tr>
 		
 	</table>
 	
 	<a href="/addpark" class="btn btn-primary">Add new park</a>
-	<a href="/attractionlist" class="btn btn-primary">Attractionlist</a>
+	<a href="/parklist" class="btn btn-primary">Back to Amusement parks</a>
 
 
 

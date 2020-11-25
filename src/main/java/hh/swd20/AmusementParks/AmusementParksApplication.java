@@ -16,6 +16,7 @@ import hh.swd20.AmusementParks.domain.Category;
 import hh.swd20.AmusementParks.domain.CategoryRepository;
 import hh.swd20.AmusementParks.domain.Park;
 import hh.swd20.AmusementParks.domain.ParkRepository;
+//import hh.swd20.AmusementParks.domain.Visit;
 
 
 
@@ -35,6 +36,7 @@ public class AmusementParksApplication {
 	public CommandLineRunner demo(ParkRepository parkRepository, AttractionRepository attractionRepository, CategoryRepository categoryRepository) {
 	return (args) -> {
 		
+		/*
 		log.info("save demo categories");
 		
 		Category category1 = new Category("Children");
@@ -53,7 +55,7 @@ public class AmusementParksApplication {
 		Park park3 = new Park("Powerpark", 5 , "www.powerpark.fi", "Finland", "Alahärmä");
 		
 		
-
+		
 		log.info("save demo data of attractions");
 		
 		List<Attraction> attractions1 = new ArrayList<>();
@@ -89,6 +91,7 @@ public class AmusementParksApplication {
 		parkRepository.save(park2);
 		parkRepository.save(park3);
 		
+		
 		log.info("fetch all parks");
 		for (Park park : parkRepository.findAll()) {
 			log.info(park.toString());
@@ -98,7 +101,7 @@ public class AmusementParksApplication {
 		log.info("fetch all attractions");
 		for (Attraction attraction : attractionRepository.findAll()) {
 			log.info(attraction.toString());
-		}
+		}*/
 		
 	};
 	}
